@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Form</title>
+  <style>
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f8fc;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #0066ff, #00ccff);
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo img {
+      height: 60px;
+      max-width: 200px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Form Styles */
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 35px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0066ff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #0066ff;
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group button {
+      width: 100%;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #004bb5;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="jpllogo.png" alt="Jindal Power Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Assets</a>
+      <a href="#">Requests</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Form -->
+  <div class="form-container">
+    <h2>Employee Information</h2>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="empName">Employee Name</label>
+        <input type="text" id="empName" name="empName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="empCode">Employee Code</label>
+        <input type="text" id="empCode" name="empCode" required />
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department</label>
+        <input type="text" id="department" name="department" required />
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <input type="text" id="designation" name="designation" required />
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Mobile No.</label>
+        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="remarks">Remarks</label>
+        <textarea id="remarks" name="remarks" placeholder="Optional..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

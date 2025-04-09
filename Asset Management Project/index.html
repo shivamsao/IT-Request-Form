@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Page with Nav and Boxes</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #0066ff, #00ccff);
+      padding: 10px 25px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      margin-top: -2%;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .navbar .logo img {
+      height: 60px;
+      max-width: 200px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      padding: 5px 0;
+      transition: 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      background: white;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      transition: 0.4s;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #0066ff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        transition: all 0.4s ease-in-out;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Box Container Styling */
+    .box-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+      position: relative;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 40px 20px;
+      width: 280px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+      
+    }
+
+    .box:hover {
+      transform: translateY(-6px);
+    }
+
+    .box button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .box button:hover {
+      background-color: #004bb5;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="jpllogo.png" alt="Jindal Power Logo">
+      <h1 class="navbar-title">ASSET MANAGEMENT PORTAL</h1>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Assets</a>
+      <a href="#">Requests</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Box Rows -->
+  <div class="box-wrapper">
+    <!-- First Row with 3 Boxes -->
+    <div class="row">
+      <div class="box" style="background-image: url('laptop.jpg'); ">LAPTOP <a
+          href="form.html"><button>Submit</button></a></div>
+      <div class="box" style="background-image: url('desktop.jpg');">DESKTOP <a href="form.html"><button>Submit</button></a></div>
+      <div class="box" style="background-image: url('icm.jpg');">ICM <a href="form.html"><button>Submit</button></a></div>
+    </div>
+
+    <!-- Second Row with 2 Boxes Centered -->
+    <div class="row">
+      <div class="box" style="background-image: url('printer.jpg');" >PRINTER <a href="form.html"><button>Submit</button></a></div>
+      <div class="box" style="background-image: url('mail.jpg');" >E-MAIL CREATION<a href="form.html"><button>Submit</button></a></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+
+</body>
+
+</html>
